@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto+Slab&family=Roboto:wght@400;700&display=swap");
+/*  font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Roboto Slab', serif; */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.message {
+  width: 80%;
+  border-radius: 16px 0 16px 16px;
+  background-color: #21978B;
+  margin: 10px auto 0;
+  padding: 18px 16px;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  text-align: left;
+  word-wrap: break-word;
+}/*# sourceMappingURL=messages.css.map */

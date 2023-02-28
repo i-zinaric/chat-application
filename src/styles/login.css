@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto+Slab&family=Roboto:wght@400;700&display=swap");
+/*  font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Roboto Slab', serif; */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#header {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  vertical-align: center;
+}
+#header img {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+}
+#header h1 {
+  display: inline-block;
+  font-family: "Roboto Slab", serif;
+  margin: 10px;
+}
+
+h4 {
+  margin: 30px auto;
+  width: 80%;
+  font-family: "Roboto Slab", serif;
+  font-weight: 400;
+  font-size: 36px;
+}
+
+p {
+  margin: 50px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 19px;
+  color: #4F5665;
+}
+
+#login-form input {
+  display: block;
+  margin: 20px auto;
+  width: 300px;
+  border: 1px solid #E8E8E8;
+  border-radius: 24px;
+  padding: 12px 26px;
+  color: black;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+}
+#login-form input::-moz-placeholder {
+  color: #C7C3C3;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+}
+#login-form input::placeholder {
+  color: #C7C3C3;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+}
+#login-form input:focus {
+  outline: none;
+}
+#login-form .avatars-container {
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#login-form button {
+  width: 250px;
+  height: 50px;
+  box-shadow: none;
+  border: none;
+  border-radius: 100px;
+  background-color: #21978B;
+  color: white;
+}
+#login-form button:hover {
+  cursor: pointer;
+}
+#login-form button:active {
+  background-color: white;
+  color: #21978B;
+  border: 1px solid #21978B;
+}/*# sourceMappingURL=login.css.map */

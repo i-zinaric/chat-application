@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.avatar-item {
+    width: 25%;
+    label {
+        width: 125px;
+        height: 135px;
+    }
+    input:checked ~ label {
+        border: 1px solid #FFFFFF;
+        border-radius: 13px; 
+    }
+}

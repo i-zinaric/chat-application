@@ -1,0 +1,17 @@
+[
+    {
+        "image": "astronaut",
+        "nameId": "astronaut",
+        "path": "../images/avatar-1.svg"
+    },
+    {
+        "image": "ninja",
+        "nameId": "ninja",
+        "path": "../images/avatar-2.svg"
+    },
+    {
+        "image": "mask",
+        "nameId": "mask",
+        "path": "../images/avatar-3.svg"
+    }
+]
