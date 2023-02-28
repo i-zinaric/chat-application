@@ -10,69 +10,56 @@ import { useState, useEffect } from 'react';
 function App() {
 
   const [showLogin, setShowLogin] = useState(true);
+
   const [member, setMember] = useState({});
   const onSendMember = (userName, avatarName) => {
       setMember( {userName: userName, avatar: avatarName} );
       setShowLogin(false);
   }
-
+  
   const [messages, setMessages] = useState([]);
   const onSendMessage = (text) => {
-      setMessages([...messages, text])
+      setMessages(...messages, {
+        text: text,
+        member: member
+      } )
     }
   
 
-/*   //POKUŠAJ
-  const Scaledrone = require('scaledrone-react-native');
-  const drone = new Scaledrone('fkzKMvPIL1jCuyQR');
-  // // useEffect(() => { }) //????
-  //connect to scaledrone
-  drone.on('open', error => {
-    if (error) {
-      return console.error(error);
-    }
-    console.log('Successfully connected to Scaledrone');
-  });
-  //connect to room
-  const room = drone.subscribe('observable-room');
-  room.on('data', (message, member) => {
-    setMessages([...messages, message])
-  })
-  //publish to room
-  const onSendMessage = (text) => {
-    setMessages([...messages, text]);
-    drone.publish({
-      room: "observable-room",
-      message: messages,
-    });
-  } */
-
-  const Scaledrone = require('scaledrone-react-native');
-
+  const [drone, setDrone] = useState();
   useEffect(() => {
-    const drone = new Scaledrone("fkzKMvPIL1jCuyQR", {
+    const drone = new window.Scaledrone('fkzKMvPIL1jCuyQR', {
       data: member
     });
-    drone.on('open', error => {
-      if (error) {
-        return console.error(error);
-      }
-      const updatedMember = {...member};
-      updatedMember.id = drone.clientId;
-      setMember(updatedMember);
-      console.log(member);
+    setDrone(drone);
+  }, []);
+
+
+  useEffect(() => {
+    if (drone) {
+      //connect to scaledrone
+      drone.on('open', error => {
+        if (error) {
+          return console.error(error);
+        }
+        member.id = drone.clientId;
+      });
+      //connect to room
+      const room = drone.subscribe('observable-room');
+      room.on('data', (message, member) => {
+        setMessages([...messages, message])
+      })
+      //publish to room
+      const onSendMessage = (text) => {
+        setMessages([...messages, text]);
+        drone.publish({
+          room: "observable-room",
+          message: messages,
     });
-    const room = drone.subscribe("observable-room");
-    room.on('data', (data, member) => {
-      setMessages((prevMessages) => [...prevMessages, {member, text: data}]);
-    });
-    const onSendMessage = (text) => {
-      setMessages([...messages, text]);
-      drone.publish({
-        room: "observable-room",
-        message: messages,
-      });}
-  }, [member]);
+  }
+    }
+  }, [drone])
+
  
 
   return (

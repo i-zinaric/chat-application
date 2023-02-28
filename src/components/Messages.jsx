@@ -10,7 +10,6 @@ const Messages = (props) => {
     /* const {messages} = props; */
     const messages = props.messages;
     const member = props.member;
-    const memberAvatar = props.member.avatar;
     
     return (
         <div className="messagess-container">
@@ -21,18 +20,18 @@ const Messages = (props) => {
                             
                             <div className="message-info">
                                 <div className='user'>
-                                    {member.userName}
+                                    {messages.member.userName}
                                 </div>
                                 <div className="time">
                                     12:23
                                 </div>
                                 <div className="message">                                    
-                                    {message}
+                                    {message.text}
                                 </div>
                             </div>
         
                             <div className="message-avatar">
-                                <img src='' alt={member.avatar}/>
+                                <img src='' alt={messages.member.avatar}/>
                             </div>
                         </div>
                     )
