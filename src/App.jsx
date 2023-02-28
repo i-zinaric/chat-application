@@ -11,18 +11,22 @@ function App() {
 
   const [showLogin, setShowLogin] = useState(true);
 
-  const [member, setMember] = useState({});
+  const [member, setMember] = useState({userName: 'userName', avatar: 'avatarName'});
   const onSendMember = (userName, avatarName) => {
       setMember( {userName: userName, avatar: avatarName} );
       setShowLogin(false);
   }
   
   const [messages, setMessages] = useState([]);
-  const onSendMessage = (text) => {
-      setMessages(...messages, {
-        text: text,
+  const onSendMessage = (textInputValue) => {  
+      setMessages([...messages, {
+        text: textInputValue,
         member: member
-      } )
+      }] )
+      drone.publish({
+        room: "observable-room",
+        message: [messages]
+      });
     }
   
 
@@ -42,28 +46,21 @@ function App() {
         if (error) {
           return console.error(error);
         }
+        const member = member;
         member.id = drone.clientId;
       });
       //connect to room
       const room = drone.subscribe('observable-room');
-      room.on('data', (message, member) => {
-        setMessages([...messages, message])
+      room.on('data', (data, member) => {
+        setMessages([...messages, {member, text: data}])
       })
-      //publish to room
-      const onSendMessage = (text) => {
-        setMessages([...messages, text]);
-        drone.publish({
-          room: "observable-room",
-          message: messages,
-    });
-  }
     }
   }, [drone])
 
  
 
   return (
-    <div className="App">  
+    <div className="App">
 
       {
         (showLogin) ?

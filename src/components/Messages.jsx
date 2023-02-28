@@ -14,24 +14,24 @@ const Messages = (props) => {
     return (
         <div className="messagess-container">
             {
-                messages.map((message, index) => {
+                messages.map((el, index) => {
                     return (
                         <div className="message-item" key={index}>
                             
                             <div className="message-info">
                                 <div className='user'>
-                                    {messages.member.userName}
+                                    {el.member.userName}
                                 </div>
                                 <div className="time">
                                     12:23
                                 </div>
                                 <div className="message">                                    
-                                    {message.text}
+                                    {el.text}
                                 </div>
                             </div>
         
                             <div className="message-avatar">
-                                <img src='' alt={messages.member.avatar}/>
+                                <img src='' alt={el.member.avatar}/>
                             </div>
                         </div>
                     )

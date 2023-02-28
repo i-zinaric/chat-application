@@ -66,14 +66,6 @@ const Login = (props) => {
                                         <img src={avatar.image} alt={avatar.nameId} />
                                     </label>
                                 </div>
-
-
-
-
-/*                                 { <Avatar 
-                                    avatarItem={avatar}
-                                    key={index}
-                                />} */
                             )                      
                         })
                     }
