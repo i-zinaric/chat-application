@@ -9,70 +9,56 @@ import { useState, useEffect } from 'react';
 
 function App() {
 
-  const [showLogin, setShowLogin] = useState(true);
-  const [member, setMember] = useState({});
   const onSendMember = (userName, avatarName) => {
-      setMember( {userName: userName, avatar: avatarName} );
-      setShowLogin(false);
+    setMember( {userName: userName, avatarName: avatarName} );
+    setShowLogin(false);
   }
 
+
+  const [showLogin, setShowLogin] = useState(true);
+  const [member, setMember] = useState( {userName: '', avatar: ''} );
   const [messages, setMessages] = useState([]);
-  const onSendMessage = (text) => {
-      setMessages([...messages, text])
-    }
+  const [drone, setDrone] = useState(null);
   
 
-/*   //POKUŠAJ
-  const Scaledrone = require('scaledrone-react-native');
-  const drone = new Scaledrone('fkzKMvPIL1jCuyQR');
-  // // useEffect(() => { }) //????
-  //connect to scaledrone
-  drone.on('open', error => {
-    if (error) {
-      return console.error(error);
+  useEffect(() => {
+    if (member.userName !== '') {
+      const drone = new window.Scaledrone('fkzKMvPIL1jCuyQR', {
+        data: member
+      });
+      setDrone(drone);
+      console.log('connect to scaledrone')
     }
-    console.log('Successfully connected to Scaledrone');
-  });
-  //connect to room
-  const room = drone.subscribe('observable-room');
-  room.on('data', (message, member) => {
-    setMessages([...messages, message])
-  })
-  //publish to room
-  const onSendMessage = (text) => {
-    setMessages([...messages, text]);
-    drone.publish({
-      room: "observable-room",
-      message: messages,
-    });
-  } */
+  }, [member]);
 
-  const Scaledrone = require('scaledrone-react-native');
 
   useEffect(() => {
-    const drone = new Scaledrone("fkzKMvPIL1jCuyQR", {
-      data: member
-    });
-    drone.on('open', error => {
-      if (error) {
-        return console.error(error);
-      }
-      const updatedMember = {...member};
-      updatedMember.id = drone.clientId;
-      setMember(updatedMember);
-      console.log(member);
-    });
-    const room = drone.subscribe("observable-room");
-    room.on('data', (data, member) => {
-      setMessages((prevMessages) => [...prevMessages, {member, text: data}]);
-    });
-    const onSendMessage = (text) => {
-      setMessages([...messages, text]);
+    if (drone) {
+      
+      drone.on('open', error => {
+        if (error) {
+          return console.error(error);
+        }
+        member.id = drone.clientId;
+        setMember(member);
+        console.log('prijavljeni user: ', member);
+      });
+
+      const room = drone.subscribe("observable-room");
+
+      room.on('data', (data, member) => {
+        setMessages( [...messages, {member, text: data}] );
+      })
+
+    }
+  }, [drone, member, messages]);
+
+  const onSendMessage = (textInputValue) => {
       drone.publish({
         room: "observable-room",
-        message: messages,
-      });}
-  }, [member]);
+        message: textInputValue
+      });
+    }
  
 
   return (

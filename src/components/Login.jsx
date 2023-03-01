@@ -67,13 +67,6 @@ const Login = (props) => {
                                     </label>
                                 </div>
 
-
-
-
-/*                                 { <Avatar 
-                                    avatarItem={avatar}
-                                    key={index}
-                                />} */
                             )                      
                         })
                     }
