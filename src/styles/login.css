@@ -73,6 +73,17 @@ p {
   justify-content: center;
   align-items: center;
 }
+#login-form .avatars-container .avatar-item {
+  width: 25%;
+}
+#login-form .avatars-container .avatar-item label {
+  width: 125px;
+  height: 135px;
+}
+#login-form .avatars-container .avatar-item input:checked ~ label {
+  border: 1px solid #FFFFFF;
+  border-radius: 13px;
+}
 #login-form button {
   width: 250px;
   height: 50px;

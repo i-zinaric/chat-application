@@ -59,4 +59,47 @@
         .message-avatar {
         }
     }
+    .message-item-received {
+        display: flex;
+        justify-content: end;
+        align-items: top;
+
+        margin-top: 15px;
+        .message-info {
+            margin-right: 5px;
+            .user {
+                margin-bottom: 2px;
+                font-family: 'Roboto', sans-serif;
+                font-size: 16px;
+                font-weight: 700;
+                color: #141414;
+                text-align: right;
+                text-transform: capitalize;
+            }
+            .time {
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 11px;
+                color: #4F5665;
+                text-align: right;
+            }
+            .message {
+                border-radius: 16px 0 16px 16px;
+                background-color: #97213f;
+                margin: 10px auto 0;
+                padding: 18px 16px;
+                max-width: 60vw;
+            
+            
+                color: white;
+                font-family: 'Roboto', sans-serif;
+                font-size: 14px;
+                text-align: left;
+                word-wrap: break-word;
+            }
+        }
+        .message-avatar {
+        }
+    }
 }

@@ -20,7 +20,14 @@ const Messages = (props) => {
                 messages.map((el, index) => {
                     console.log(el)
                     return (
-                        <div className='message-item' key={index}>
+                        <div
+                            className=
+                                    {
+                                        ((member.id === messages[index].member.id)) ?
+                                        'message-item' :
+                                        'message-item-received'
+                                    }
+                            key={index}>   {/* message-item */}
                             
                             <div className="message-info">
                                 <div className='user'>

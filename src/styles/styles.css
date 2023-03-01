@@ -1,11 +1,4 @@
 .container {
   height: 100vh;
   position: relative;
-}
-.container .messagess-container {
-  padding-left: 10px;
-  padding-right: 10px;
-  width: 100%;
-  height: calc(100vh - 100px);
-  overflow-y: scroll;
 }/*# sourceMappingURL=styles.css.map */
