@@ -75,14 +75,15 @@
 
         margin-top: 15px;
         .message-info {
-            margin-right: 5px;
+            order: 2;
+            margin-left: 5px;
             .user {
                 margin-bottom: 2px;
                 font-family: 'Roboto', sans-serif;
                 font-size: 16px;
                 font-weight: 700;
                 color: #141414;
-                text-align: right;
+                text-align: left;
                 text-transform: capitalize;
             }
             .time {
@@ -91,7 +92,7 @@
                 font-weight: 400;
                 font-size: 11px;
                 color: #4F5665;
-                text-align: right;
+                text-align: left;
             }
             .message {
                 border-radius: 16px 0 16px 16px;
@@ -109,6 +110,7 @@
             }
         }
         .message-avatar {
+            order: 1;
             height: 35px;
             width: 35px;
             background-color: rgb(208,110,208, 0.3);

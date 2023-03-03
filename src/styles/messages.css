@@ -71,7 +71,8 @@
   margin-top: 15px;
 }
 .messagess-container .message-item-received .message-info {
-  margin-right: 5px;
+  order: 2;
+  margin-left: 5px;
 }
 .messagess-container .message-item-received .message-info .user {
   margin-bottom: 2px;
@@ -79,7 +80,7 @@
   font-size: 16px;
   font-weight: 700;
   color: #141414;
-  text-align: right;
+  text-align: left;
   text-transform: capitalize;
 }
 .messagess-container .message-item-received .message-info .time {
@@ -88,7 +89,7 @@
   font-weight: 400;
   font-size: 11px;
   color: #4F5665;
-  text-align: right;
+  text-align: left;
 }
 .messagess-container .message-item-received .message-info .message {
   border-radius: 16px 0 16px 16px;
@@ -103,6 +104,7 @@
   word-wrap: break-word;
 }
 .messagess-container .message-item-received .message-avatar {
+  order: 1;
   height: 35px;
   width: 35px;
   background-color: rgba(208, 110, 208, 0.3);
