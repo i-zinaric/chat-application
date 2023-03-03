@@ -3,6 +3,7 @@ import './styles/styles.scss';
 import Login from './components/Login';
 import Input from './components/Input';
 import Messages from './components/Messages';
+import Header from './components/Header';
 
 import { useState, useEffect } from 'react';
 
@@ -15,10 +16,12 @@ function App() {
   }
 
 
+
   const [showLogin, setShowLogin] = useState(true);
   const [member, setMember] = useState( {userName: '', avatar: ''} );
   const [messages, setMessages] = useState([]);
   const [drone, setDrone] = useState(null);
+  const [headerAvatars, setHeaderAvatars] = useState([]);
 
   const hours = new Date().getHours();
   const minutes = new Date().getMinutes();
@@ -51,6 +54,7 @@ function App() {
 
       room.on('data', (data, member) => {
         setMessages( [...messages, {member, text: data, time: `${hours}:${minutes}`}] );
+
       })
 
     }
@@ -74,7 +78,12 @@ function App() {
          onSendMember={onSendMember}
         /> :
 
-        <div className='container'>         
+        <div className='container'> 
+
+          <Header
+            headerAvatars={headerAvatars}
+          />
+
           <Messages 
             messages={messages}
             member={member}

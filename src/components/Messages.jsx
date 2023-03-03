@@ -2,7 +2,6 @@ import styles from '../styles/messages.scss';
 import astronaut from '../images/avatar-1.svg';
 import ninja from '../images/avatar-2.svg';
 import mask from '../images/avatar-3.svg';
-import logo2 from '../images/logo-2.svg';
 
 const Messages = (props) => {
 
@@ -20,12 +19,6 @@ const Messages = (props) => {
 
     
     return (
-    <>
-        <div className='header'>
-            <img src={logo2} alt='logo'/>
-            <h1>Glare</h1>
-        </div>
-
         <div className="messagess-container">
 
             {
@@ -66,9 +59,7 @@ const Messages = (props) => {
                 })
             }
         </div>
-    </>
     )
-
 }
 
 
