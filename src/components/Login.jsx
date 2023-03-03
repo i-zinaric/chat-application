@@ -17,11 +17,11 @@ const Login = (props) => {
     ];
 
     const [userName, setUserName] = useState('');
-    const [avatarName, setAvatarName] = useState();
+    const [avatarIndex, setAvatarIndex] = useState();
 
     const handleSubmitName = (event) => {
         event.preventDefault();
-        props.onSendMember(userName, avatarName);
+        props.onSendMember(userName, avatarIndex);
         setUserName('');
     }
 
@@ -60,7 +60,7 @@ const Login = (props) => {
                                         id={avatar.nameId}
                                         name='avatar'
                                         required
-                                        onClick={(avatar) => setAvatarName(avatar.target.id)}
+                                        onClick={(avatar) => setAvatarIndex(index)} //avatar.target.id
                                     />
                                     <label htmlFor={avatar.nameId}>
                                         <img src={avatar.image} alt={avatar.nameId} />

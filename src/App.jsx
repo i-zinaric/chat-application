@@ -9,8 +9,8 @@ import { useState, useEffect } from 'react';
 
 function App() {
 
-  const onSendMember = (userName, avatarName) => {
-    setMember( {userName: userName, avatarName: avatarName} );
+  const onSendMember = (userName, avatarIndex) => {
+    setMember( {userName: userName, avatarName: avatarIndex} );
     setShowLogin(false);
   }
 

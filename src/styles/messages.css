@@ -55,7 +55,7 @@
 }
 .messagess-container .message-item-received {
   display: flex;
-  justify-content: end;
+  justify-content: start;
   align-items: top;
   margin-top: 15px;
 }
@@ -81,7 +81,7 @@
 }
 .messagess-container .message-item-received .message-info .message {
   border-radius: 16px 0 16px 16px;
-  background-color: #97213f;
+  background-color: #d06ed0;
   margin: 10px auto 0;
   padding: 18px 16px;
   max-width: 60vw;

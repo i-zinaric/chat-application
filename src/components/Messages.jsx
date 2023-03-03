@@ -11,6 +11,12 @@ const Messages = (props) => {
     const messages = props.messages;
     const member = props.member;
 
+    const avatars = [
+        {image: astronaut, nameId: 'astronaut'},
+        {image: ninja, nameId: 'ninja'},
+        {image: mask, nameId: 'mask'}
+    ];
+
     
     return (
         <div className="messagess-container">
@@ -27,7 +33,7 @@ const Messages = (props) => {
                                         'message-item' :
                                         'message-item-received'
                                     }
-                            key={index}>   {/* message-item */}
+                            key={index}>
                             
                             <div className="message-info">
                                 <div className='user'>
@@ -43,8 +49,8 @@ const Messages = (props) => {
         
                             <div className="message-avatar">
                                 <img 
-                                    src=''
-                                    alt={el.member.clientData.avatarName}
+                                    src={avatars[el.member.clientData.avatarName].image}
+                                    alt={avatars[el.member.clientData.avatarName].nameId}
                                 />
                             </div>
                             
