@@ -10,7 +10,7 @@ import { useState, useEffect } from 'react';
 function App() {
 
   const onSendMember = (userName, avatarIndex) => {
-    setMember( {userName: userName, avatarName: avatarIndex} );
+    setMember( {userName: userName, avatarIndex: avatarIndex} );
     setShowLogin(false);
   }
 
@@ -19,6 +19,9 @@ function App() {
   const [member, setMember] = useState( {userName: '', avatar: ''} );
   const [messages, setMessages] = useState([]);
   const [drone, setDrone] = useState(null);
+
+  const hours = new Date().getHours();
+  const minutes = new Date().getMinutes();
   
 
   useEffect(() => {
@@ -47,7 +50,7 @@ function App() {
       const room = drone.subscribe("observable-room");
 
       room.on('data', (data, member) => {
-        setMessages( [...messages, {member, text: data}] );
+        setMessages( [...messages, {member, text: data, time: `${hours}:${minutes}`}] );
       })
 
     }

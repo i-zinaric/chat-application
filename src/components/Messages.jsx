@@ -40,7 +40,7 @@ const Messages = (props) => {
                                     {el.member.clientData.userName}
                                 </div>
                                 <div className="time">
-                                    12:23
+                                    {el.time}
                                 </div>
                                 <div className="message">                                    
                                     {el.text}
@@ -49,8 +49,8 @@ const Messages = (props) => {
         
                             <div className="message-avatar">
                                 <img 
-                                    src={avatars[el.member.clientData.avatarName].image}
-                                    alt={avatars[el.member.clientData.avatarName].nameId}
+                                    src={avatars[el.member.clientData.avatarIndex].image}
+                                    alt={avatars[el.member.clientData.avatarIndex].nameId}
                                 />
                             </div>
                             
