@@ -62,7 +62,6 @@ const Login = (props) => {
                                         <img src={avatar.image} alt={avatar.nameId} />
                                     </label>
                                 </div>
-
                             )                      
                         })
                     }
