@@ -4,9 +4,7 @@ import ninja from '../images/avatar-2.svg';
 import mask from '../images/avatar-3.svg';
 
 const Messages = (props) => {
-
-
-    
+  
     /* const {messages} = props; */
     const messages = props.messages;
     const member = props.member;
@@ -17,10 +15,8 @@ const Messages = (props) => {
         {image: mask, nameId: 'mask'}
     ];
 
-    
     return (
         <div className="messagess-container">
-
             {
                 (messages.length > 0) &&
                 messages.map((el, index) => {
@@ -33,7 +29,8 @@ const Messages = (props) => {
                                         'message-item' :
                                         'message-item-received'
                                     }
-                            key={index}>
+                            key={index}
+                        >
                             
                             <div className="message-info">
                                 <div className='user'>
@@ -52,8 +49,7 @@ const Messages = (props) => {
                                     src={avatars[el.member.clientData.avatarIndex].image}
                                     alt={avatars[el.member.clientData.avatarIndex].nameId}
                                 />
-                            </div>
-                            
+                            </div>                            
                         </div>
                     )
                 })
@@ -61,6 +57,5 @@ const Messages = (props) => {
         </div>
     )
 }
-
 
 export default Messages

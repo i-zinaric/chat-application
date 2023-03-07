@@ -1,12 +1,9 @@
 import '../styles/login.scss';
 import logo from '../images/logo.svg';
-
 import astronaut from '../images/avatar-1.svg';
 import ninja from '../images/avatar-2.svg';
 import mask from '../images/avatar-3.svg';
-
 import { useState } from "react";
-
 
 const Login = (props) => {
 
@@ -26,8 +23,7 @@ const Login = (props) => {
     }
 
     return (
-        <>
-        
+        <>        
             <div id='header'>
                 <img src={logo} alt='logo'/>
                 <h1>Glare</h1>
@@ -76,7 +72,6 @@ const Login = (props) => {
                     OK
                 </button>
             </form>
-
         </>
     )
 }

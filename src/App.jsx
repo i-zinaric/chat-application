@@ -4,18 +4,13 @@ import Login from './components/Login';
 import Input from './components/Input';
 import Messages from './components/Messages';
 import Header from './components/Header';
-
 import { useState, useEffect } from 'react';
 
-
 function App() {
-
   const onSendMember = (userName, avatarIndex) => {
     setMember( {userName: userName, avatarIndex: avatarIndex} );
     setShowLogin(false);
   }
-
-
 
   const [showLogin, setShowLogin] = useState(true);
   const [member, setMember] = useState( {userName: '', avatar: ''} );
@@ -26,7 +21,6 @@ function App() {
   const hours = new Date().getHours();
   const minutes = new Date().getMinutes();
   
-
   useEffect(() => {
     if (member.userName !== '') {
       const drone = new window.Scaledrone('fkzKMvPIL1jCuyQR', {
@@ -37,10 +31,8 @@ function App() {
     }
   }, [member]);
 
-
   useEffect(() => {
-    if (drone) {
-      
+    if (drone) {      
       drone.on('open', error => {
         if (error) {
           return console.error(error);
@@ -56,7 +48,6 @@ function App() {
         setMessages( [...messages, {member, text: data, time: `${hours}:${minutes}`}] );
 
       })
-
     }
   }, [drone, member, messages]);
 
@@ -66,39 +57,30 @@ function App() {
         message: textInputValue
       });
     }
- 
 
   return (
-    <div className="App">  
-
+    <div className="App">
       {
         (showLogin) ?
-        
+
         <Login
          onSendMember={onSendMember}
         /> :
-
         <div className='container'> 
-
           <Header
             headerAvatars={headerAvatars}
           />
-
           <Messages 
             messages={messages}
             member={member}
-          />            
-
+          />
           <Input
             onSendMessage={onSendMessage}
           />
         </div>
       }
-      
-
     </div>
   )
-
 }
 
 export default App;
